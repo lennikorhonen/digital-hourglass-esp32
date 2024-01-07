@@ -33,7 +33,7 @@ void app_main(void)
     while (1) {
         unsigned long int currentTime = xTaskGetTickCount();
 
-        if (currentTime - previousTime > interval && led_indx != sizeof(leds) / sizeof(int)) {
+        if (currentTime - previousTime > interval && led_indx < sizeof(leds) / sizeof(int)) {
             previousTime = currentTime;
 
             gpio_set_level(leds[led_indx], 1);
